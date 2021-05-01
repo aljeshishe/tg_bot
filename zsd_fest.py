@@ -20,9 +20,9 @@ def check_place():
         response2.raise_for_status()
 
         fail_string = 'Ограничение дисциплины'
-        if fail_string not in response1 and fail_string in response2:
+        if fail_string not in response1.text and fail_string in response2.text:
             return 'Нет мест'
-        if fail_string not in response1 and fail_string not in response2:
+        if fail_string not in response1.text and fail_string not in response2.text:
             return 'Есть места'
         raise Exception(f'Unexpected response:\n{response2.text}')
 
