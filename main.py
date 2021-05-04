@@ -47,8 +47,9 @@ def start(update: Update, context: CallbackContext) -> None:
 def alarm(context: CallbackContext) -> None:
     """Send the alarm message."""
 
-    job = context.job
-    context.bot.send_message(job.context, text=zsd_fest.check_place())
+    message = zsd_fest.check_place()
+    if message:
+        context.bot.send_message(context.job.context, text=message)
 
 
 def stop(update: Update, context: CallbackContext) -> None:

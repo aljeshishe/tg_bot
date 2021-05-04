@@ -21,7 +21,7 @@ def check_place():
 
         fail_string = 'Ограничение дисциплины'
         if fail_string not in response1.text and fail_string in response2.text:
-            return 'Нет мест'
+            return None
         if fail_string not in response1.text and fail_string not in response2.text:
             return 'Есть места'
         raise Exception(f'Unexpected response:\n{response2.text}')
